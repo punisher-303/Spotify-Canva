@@ -73,15 +73,6 @@ SP_DC=your_sp_dc_cookie_here
 ```
 
 > This cookie is used to generate an access token to authenticate requests.
-
----
-
-## Deployment
-
-You can deploy instantly with Vercel:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPaxsenix0%2FSpotify-Canvas-API%2Ftree%2Fmain&project-name=Spotify-Canvas-API&repository-name=Spotify-Canvas-API&env=SP_DC&envDescription=SP_DC%20is%20needed%20for%20this%20for%20authentication%20to%20be%20working%20fine&envLink=https%3A%2F%2Fwww.spotify.com%2F&redirect-url=https%3A%2F%2Fgithub.com%2FPaxsenix0%2FSpotify-Canvas-API)
-
 ---
 
 ## Notes
