@@ -52,8 +52,8 @@ https://localhost:3000/api/canvas?trackId=3OHfY25tqY28d16oZczHc8
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/Paxsenix0/Spotify-Canvas-API.git
-cd Spotify-Canvas-API
+git clone https://github.com/punisher-303/spotify-video.git
+cd spotify-video
 ```
 
 ### 2. Install Dependencies
