@@ -1767,6 +1767,189 @@ kbd {
 }
 
 /* ==========================================================================
+   DEVELOPERS SHOWCASE SECTION
+   ========================================================================== */
+.devs-section {
+    max-width: var(--max-width);
+    margin: 0 auto 120px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+.devs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    max-width: 800px;
+    margin: 40px auto 0;
+}
+
+.dev-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: 40px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform var(--transition-medium), border-color var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.dev-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 12px 40px rgba(29, 185, 84, 0.12);
+}
+
+/* Backlighting glow */
+.dev-card-glow {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(29, 185, 84, 0.1) 0%, rgba(29, 185, 84, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+    transition: transform var(--transition-medium);
+}
+.dev-card:hover .dev-card-glow {
+    transform: translateX(-50%) scale(1.2);
+}
+
+.dev-avatar-wrap {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 24px;
+}
+
+.dev-avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--border-color);
+    filter: grayscale(100%);
+    transition: filter var(--transition-medium), transform var(--transition-medium), border-color var(--transition-medium);
+}
+.dev-card:hover .dev-avatar {
+    transform: scale(1.05);
+    border-color: var(--accent);
+    filter: grayscale(0%);
+}
+.dev-card:hover:nth-child(2) .dev-avatar {
+    border-color: #3b82f6; /* Matching blue hover border for dev 2 */
+}
+
+.dev-badge {
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: var(--bg-primary);
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    box-shadow: 0 4px 10px rgba(29, 185, 84, 0.3);
+}
+
+.dev-badge.co-dev {
+    background: #3b82f6; /* Beautiful premium blue badge for Co-Dev */
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+.dev-name {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    z-index: 1;
+}
+
+.dev-role {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 16px;
+    z-index: 1;
+}
+.dev-card:nth-child(2) .dev-role {
+    color: #3b82f6; /* Blue role label for dev 2 to match the badge */
+}
+
+.dev-bio {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    z-index: 1;
+    max-width: 280px;
+}
+
+.dev-tags {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    z-index: 1;
+}
+
+.dev-tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+}
+
+.dev-tag.discord {
+    cursor: pointer;
+}
+.dev-tag.discord:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(29, 185, 84, 0.04);
+}
+.dev-tag.github:hover {
+    color: #fff;
+    border-color: #fff;
+}
+.dev-tag svg {
+    width: 12px;
+    height: 12px;
+}
+
+.dev-redirect-btn {
+    width: 100%;
+    margin-top: auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+}
+
+/* ==========================================================================
    RESPONSIVE STYLES (MEDIA QUERIES)
    ========================================================================== */
 @media (max-width: 1024px) {
