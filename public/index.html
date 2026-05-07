@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Canvas API - Documentation & Interactive Playground</title>
+    <meta name="description" content="A professional, unofficial API to fetch high-quality looping Spotify Canvas video data (the mobile background videos) by track ID or track URI. Custom play sandbox included.">
+    <meta name="keywords" content="spotify, canvas, video, API, developer, documentation, protobuf, sp_dc, fetch spotify canvas">
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Spotify Canvas API - Docs & Playground">
+    <meta property="og:description" content="Retrieve high-quality looping vertical canvas videos from Spotify tracks using this unofficial developer API. Documentation and active sandbox playground inside.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Decorative Ambient Glows -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <div class="logo-icon">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                    <span class="bar bar-3"></span>
+                </div>
+                <span class="brand-name">Spotify<span class="accent">Canvas</span></span>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#playground" class="nav-link">Playground</a>
+                <a href="#docs" class="nav-link">API Docs</a>
+                <a href="#auth" class="nav-link">Auth Guide</a>
+                <a href="#self-host" class="nav-link">Self-Hosting</a>
+            </nav>
+
+            <div class="nav-actions">
+                <div class="api-status-badge">
+                    <span class="status-dot pulsing"></span>
+                    <span class="status-text">API Online</span>
+                </div>
+                <a href="https://github.com/punisher-303/Spotify-Canva" target="_blank" rel="noopener" class="btn-github">
+                    <i data-lucide="github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="badge-container">
+                <span class="pill-badge">v2.0.0 Released</span>
+                <span class="pill-badge outline">Unofficial Developer SDK</span>
+            </div>
+            <h1 class="hero-title">Unlock the Visual Heart of <span class="gradient-text">Spotify</span></h1>
+            <p class="hero-subtitle">
+                An ultra-fast, robust microservice designed to fetch Spotify's official <b>Canvas looping videos</b>. Convert any Track ID into high-definition, vertical MP4 data stream URLs instantly.
+            </p>
+            <div class="hero-actions">
+                <a href="#playground" class="btn btn-primary">
+                    <i data-lucide="play" class="btn-icon"></i>
+                    Launch Sandbox
+                </a>
+                <a href="#docs" class="btn btn-secondary">
+                    <i data-lucide="book-open" class="btn-icon"></i>
+                    Read Documentation
+                </a>
+            </div>
+        </section>
+
+        <!-- Feature Grid Section -->
+        <section class="features-section">
+            <div class="section-header">
+                <h2>Engineered for Modern Web Apps</h2>
+                <p>Designed with performance, reliability, and security in mind.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="card-icon"><i data-lucide="cpu"></i></div>
+                    <h3>Protobuf Decoding</h3>
+                    <p>Parses internal binary Protobuf streams directly from Spotify's secure edge nodes for unmatched precision and speed.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"><i data-lucide="shield-check"></i></div>
+                    <h3>Smart TOTP Auth</h3>
+                    <p>Integrates dynamic Time-based One-Time Password protocols linked with auto-updated GitHub secrets dictionary vectors.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"><i data-lucide="zap"></i></div>
+                    <h3>No End-User Auth</h3>
+                    <p>Your users don't need a Spotify account. The backend signs queries anonymously using a single pre-configured token.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="card-icon"><i data-lucide="video"></i></div>
+                    <h3>Direct MP4 Streaming</h3>
+                    <p>Exposes CDN-direct raw URLs of the loop canvases. Load videos directly onto video elements, image frames, or canvas contexts.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sandbox & Interactive Playground Section -->
+        <section id="playground" class="playground-section">
+            <div class="section-header">
+                <span class="section-pre">Live Sandbox</span>
+                <h2>Interactive Playground</h2>
+                <p>Test any track instantly. Watch the canvas load inside a simulated mobile media player or check the JSON payload structure.</p>
+            </div>
+
+            <div class="playground-grid">
+                <!-- Left Panel: Controls and Input -->
+                <div class="playground-control-panel">
+                    <div class="panel-header">
+                        <i data-lucide="sliders-horizontal" class="panel-header-icon"></i>
+                        <h3>Request Configuration</h3>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="track-id-input">Spotify Track ID / URI</label>
+                        <div class="input-with-button">
+                            <i data-lucide="music" class="input-icon"></i>
+                            <input type="text" id="track-id-input" value="3OHfY25tqY28d16oZczHc8" placeholder="e.g. 3OHfY25tqY28d16oZczHc8">
+                            <button id="btn-fetch" class="btn btn-accent">
+                                <span class="btn-text">Fetch Canvas</span>
+                                <span class="spinner hidden"></span>
+                            </button>
+                        </div>
+                        <p class="input-hint">Provide a 22-character Spotify track ID or full Spotify track URI.</p>
+                    </div>
+
+                    <!-- Preset Chips -->
+                    <div class="presets-container">
+                        <span class="presets-label">Quick Presets:</span>
+                        <div class="preset-chips">
+                            <button class="chip active" data-track-id="3OHfY25tqY28d16oZczHc8" data-song="Kill Bill" data-artist="SZA">
+                                <span>SZA - Kill Bill</span>
+                            </button>
+                            <button class="chip" data-track-id="0VjIj96nZ76vfZsgIYRMf7" data-song="Blinding Lights" data-artist="The Weeknd">
+                                <span>The Weeknd - Blinding Lights</span>
+                            </button>
+                            <button class="chip" data-track-id="6mKq63id86Y9ILJ0v7Y2V1" data-song="Birds of a Feather" data-artist="Billie Eilish">
+                                <span>Billie Eilish - Birds...</span>
+                            </button>
+                            <button class="chip" data-track-id="2q0m71O69vT73X3pSgCq9C" data-song="Espresso" data-artist="Sabrina Carpenter">
+                                <span>Sabrina C. - Espresso</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Request URL Preview -->
+                    <div class="url-preview-box">
+                        <span class="preview-label">HTTP Request URL</span>
+                        <div class="url-bar">
+                            <span class="method">GET</span>
+                            <span class="url-path" id="live-url-display">https://spotify-canva.vercel.app/api/canvas?trackId=3OHfY25tqY28d16oZczHc8</span>
+                            <button id="btn-copy-url" class="btn-icon-only" title="Copy URL">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Generated Snippets in playground control box -->
+                    <div class="code-snippets-container">
+                        <div class="snippet-header">
+                            <h4>Implementation snippet</h4>
+                            <div class="snippet-tabs">
+                                <button class="snippet-tab active" data-lang="curl">cURL</button>
+                                <button class="snippet-tab" data-lang="js">JS Fetch</button>
+                                <button class="snippet-tab" data-lang="python">Python</button>
+                                <button class="snippet-tab" data-lang="node">Axios</button>
+                            </div>
+                        </div>
+                        <div class="snippet-content">
+                            <pre><code id="snippet-code-block" class="language-bash">curl -X GET "https://spotify-canva.vercel.app/api/canvas?trackId=3OHfY25tqY28d16oZczHc8"</code></pre>
+                            <button id="btn-copy-snippet" class="btn-icon-only copy-snippet-btn" title="Copy Snippet">
+                                <i data-lucide="copy"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel: Visual Display (Mock Phone & JSON) -->
+                <div class="playground-display-panel">
+                    <div class="display-tabs">
+                        <button class="display-tab active" data-target="tab-mock-player">
+                            <i data-lucide="smartphone"></i>
+                            <span>Spotify Player Preview</span>
+                        </button>
+                        <button class="display-tab" data-target="tab-raw-json">
+                            <i data-lucide="braces"></i>
+                            <span>Raw JSON Response</span>
+                        </button>
+                    </div>
+
+                    <div class="display-panes">
+                        <!-- Tab: Mock Player -->
+                        <div id="tab-mock-player" class="display-pane active">
+                            <div class="iphone-mockup">
+                                <div class="notch"></div>
+                                <div class="screen-content">
+                                    <!-- Canvas Video (plays background) -->
+                                    <div class="canvas-video-container">
+                                        <div class="video-overlay"></div>
+                                        <video id="player-canvas-video" src="https://canvaz.scdn.co/upload/licensor/5bSw7fRotCnRCcO9br14W5/video/32b57cbf354b453a95eee32bb04d4e42.cnvs.mp4" autoplay loop muted playsinline></video>
+                                        <div class="canvas-error-placeholder hidden">
+                                            <i data-lucide="video-off"></i>
+                                            <p>No Canvas video found or available for this track.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Top UI Bar -->
+                                    <div class="phone-header">
+                                        <span class="time">09:41</span>
+                                        <div class="status-icons">
+                                            <i data-lucide="signal" class="phone-icon-small"></i>
+                                            <i data-lucide="wifi" class="phone-icon-small"></i>
+                                            <i data-lucide="battery" class="phone-icon-small"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Spotify Overlay Controls -->
+                                    <div class="player-overlay">
+                                        <!-- Mini Album Artwork with Canvas Active indicator -->
+                                        <div class="track-header-meta">
+                                            <div class="canvas-active-tag">
+                                                <div class="bar-animation">
+                                                    <span class="eq-bar eq-1"></span>
+                                                    <span class="eq-bar eq-2"></span>
+                                                    <span class="eq-bar eq-3"></span>
+                                                </div>
+                                                <span>CANVAS ACTIVE</span>
+                                            </div>
+                                            <button class="btn-circle-blur"><i data-lucide="more-horizontal"></i></button>
+                                        </div>
+
+                                        <!-- Bottom Player controls details -->
+                                        <div class="player-bottom">
+                                            <div class="song-details-wrap">
+                                                <div class="song-text">
+                                                    <h4 id="player-track-name">Kill Bill</h4>
+                                                    <p id="player-artist-name">SZA</p>
+                                                </div>
+                                                <button class="btn-like"><i data-lucide="heart" class="heart-filled"></i></button>
+                                            </div>
+
+                                            <!-- Progress Bar -->
+                                            <div class="playback-bar-container">
+                                                <div class="time-label">1:24</div>
+                                                <div class="playback-slider">
+                                                    <div class="slider-filled" style="width: 45%;"></div>
+                                                    <div class="slider-thumb" style="left: 45%;"></div>
+                                                </div>
+                                                <div class="time-label">-2:13</div>
+                                            </div>
+
+                                            <!-- Main Control Toggles -->
+                                            <div class="playback-controls">
+                                                <button class="btn-ctrl"><i data-lucide="shuffle"></i></button>
+                                                <button class="btn-ctrl"><i data-lucide="skip-back"></i></button>
+                                                <button id="player-btn-play" class="btn-play-pause"><i data-lucide="pause"></i></button>
+                                                <button class="btn-ctrl"><i data-lucide="skip-forward"></i></button>
+                                                <button class="btn-ctrl"><i data-lucide="repeat"></i></button>
+                                            </div>
+
+                                            <!-- Bottom Bar Indicators -->
+                                            <div class="player-footer-icons">
+                                                <i data-lucide="laptop"></i>
+                                                <span>Echo Pulse Stream</span>
+                                                <i data-lucide="share-2"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tab: Raw JSON -->
+                        <div id="tab-raw-json" class="display-pane">
+                            <div class="json-viewer-container">
+                                <div class="json-header">
+                                    <span class="file-info">RESPONSE_PAYLOAD.JSON</span>
+                                    <button id="btn-copy-json" class="btn-text-copy">
+                                        <i data-lucide="copy"></i>
+                                        <span>Copy JSON</span>
+                                    </button>
+                                </div>
+                                <pre><code id="json-output-block" class="json-output">Fetching canvas data...</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- API Documentation Reference Section -->
+        <section id="docs" class="docs-section">
+            <div class="section-header">
+                <span class="section-pre">Developer Reference</span>
+                <h2>API Documentation</h2>
+                <p>Learn how to query endpoints, decipher response fields, and handle system behaviors.</p>
+            </div>
+
+            <div class="docs-container">
+                <!-- Sidebar Navigation -->
+                <aside class="docs-sidebar">
+                    <ul class="sidebar-links">
+                        <li><a href="#doc-base" class="sidebar-link active">Base URL & Protocol</a></li>
+                        <li><a href="#doc-endpoint" class="sidebar-link">GET /api/canvas</a></li>
+                        <li><a href="#doc-schema" class="sidebar-link">Response Schema</a></li>
+                        <li><a href="#doc-errors" class="sidebar-link">Error Handling</a></li>
+                    </ul>
+                </aside>
+
+                <!-- Document Content -->
+                <div class="docs-main">
+                    <!-- Base URL -->
+                    <div id="doc-base" class="doc-block">
+                        <h3>Base URL & Protocol</h3>
+                        <p>All HTTP requests must originate from secure clients using HTTPS. The base URL of the deployment is:</p>
+                        <div class="copyable-box">
+                            <code class="mono">https://spotify-canva.vercel.app</code>
+                            <button class="btn-copy-box" data-copy="https://spotify-canva.vercel.app"><i data-lucide="copy"></i></button>
+                        </div>
+                        <p>Responses are returned as standard JSON strings using standard gzip/deflate transport compressions.</p>
+                    </div>
+
+                    <hr class="doc-divider">
+
+                    <!-- GET /api/canvas -->
+                    <div id="doc-endpoint" class="doc-block">
+                        <h3>GET <code>/api/canvas</code></h3>
+                        <p>Retrieve full canvas video objects, matching tracks, art thumbnails, and matching creator vectors by querying a track identifier.</p>
+                        
+                        <h4>Query Parameters</h4>
+                        <div class="table-wrapper">
+                            <table class="doc-table">
+                                <thead>
+                                    <tr>
+                                        <th>Parameter</th>
+                                        <th>Type</th>
+                                        <th>Required</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="mono-param">trackId</code></td>
+                                        <td><code>String</code></td>
+                                        <td><span class="tag-required">REQUIRED</span></td>
+                                        <td>The 22-character unique Spotify track ID (e.g. <code>3OHfY25tqY28d16oZczHc8</code>) or the full Spotify track URI (e.g. <code>spotify:track:3OHfY25tqY28d16oZczHc8</code>).</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <hr class="doc-divider">
+
+                    <!-- Response Schema -->
+                    <div id="doc-schema" class="doc-block">
+                        <h3>Response Schema</h3>
+                        <p>Returns an object wrapping a list of canvases with details. The schema structure matches the decoded internal Protobuf representations from Spotify client architectures:</p>
+                        
+                        <div class="table-wrapper">
+                            <table class="doc-table">
+                                <thead>
+                                    <tr>
+                                        <th>Field Path</th>
+                                        <th>Type</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList</code></td>
+                                        <td><code>Array</code></td>
+                                        <td>List containing fetched canvas objects matching queried track records.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList[].id</code></td>
+                                        <td><code>String</code></td>
+                                        <td>Unique hexadecimal Canvas ID.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList[].canvasUrl</code></td>
+                                        <td><code>String</code></td>
+                                        <td>Direct MP4 video URL hosted on Spotify's CDN (<code>canvaz.scdn.co</code>). Perfect for standard video looping.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList[].trackUri</code></td>
+                                        <td><code>String</code></td>
+                                        <td>The matching Spotify track URI resource pointer.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList[].artist</code></td>
+                                        <td><code>Object</code></td>
+                                        <td>Details of the artist matching this track instance.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList[].artist.artistUri</code></td>
+                                        <td><code>String</code></td>
+                                        <td>The artist's Spotify URI pointer.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList[].artist.artistName</code></td>
+                                        <td><code>String</code></td>
+                                        <td>The human-readable name of the creator/artist.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code class="mono-param">canvasesList[].artist.artistImgUrl</code></td>
+                                        <td><code>String</code></td>
+                                        <td>High-resolution profile thumbnail image of the artist.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <hr class="doc-divider">
+
+                    <!-- Error Handling -->
+                    <div id="doc-errors" class="doc-block">
+                        <h3>Error Handling</h3>
+                        <p>The API handles invalid states gracefully, communicating failures with semantic HTTP status codes:</p>
+                        
+                        <div class="table-wrapper">
+                            <table class="doc-table">
+                                <thead>
+                                    <tr>
+                                        <th>Status Code</th>
+                                        <th>Error Response</th>
+                                        <th>Common Cause</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><code>400 Bad Request</code></td>
+                                        <td><code class="mono">{"error": "Missing trackId parameter"}</code></td>
+                                        <td>The <code>trackId</code> parameter was omitted in the query strings.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><code>500 Internal Error</code></td>
+                                        <td><code class="mono">{"error": "Failed to fetch canvas data"}</code></td>
+                                        <td>The backend failed to establish token authentications or retrieve content from Spotify's API. This usually happens if the backend <code>SP_DC</code> token is invalid or expired.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Authentication Deep Dive / Cookie Guide Section -->
+        <section id="auth" class="auth-section">
+            <div class="section-header">
+                <span class="section-pre">Under The Hood</span>
+                <h2>Authentication Guide</h2>
+                <p>Learn how the service authenticates against internal Spotify microservices using dynamic credentials.</p>
+            </div>
+
+            <div class="auth-card">
+                <div class="auth-card-sidebar">
+                    <div class="auth-step-indicator active" data-step="1">
+                        <span class="step-num">1</span>
+                        <span class="step-title">Get Session Cookie</span>
+                    </div>
+                    <div class="auth-step-indicator" data-step="2">
+                        <span class="step-num">2</span>
+                        <span class="step-title">TOTP Generation</span>
+                    </div>
+                    <div class="auth-step-indicator" data-step="3">
+                        <span class="step-num">3</span>
+                        <span class="step-title">OAuth Access Token</span>
+                    </div>
+                </div>
+
+                <div class="auth-card-content">
+                    <!-- Step 1 Content -->
+                    <div class="auth-step-content active" id="auth-step-1">
+                        <h3>Extracting the <code>sp_dc</code> Session Cookie</h3>
+                        <p>Spotify's mobile and web client interfaces use a specialized cookie named <code>sp_dc</code> to authorize high-security connections. The Spotify Canvas API needs this token in its `.env` file to retrieve access tokens dynamically.</p>
+                        <div class="instruction-list">
+                            <div class="instruction-step">
+                                <span class="step-index">a</span>
+                                <p>Open a modern browser and navigate to <a href="https://open.spotify.com" target="_blank" rel="noopener">open.spotify.com</a>.</p>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-index">b</span>
+                                <p>Log in with your normal Spotify account details (either free or premium).</p>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-index">c</span>
+                                <p>Press <kbd>F12</kbd> or right-click and select <b>Inspect</b> to open Developer Tools.</p>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-index">d</span>
+                                <p>Navigate to the <b>Application</b> tab (Chrome/Edge) or <b>Storage</b> tab (Firefox).</p>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-index">e</span>
+                                <p>Expand the <b>Cookies</b> dropdown in the left sidebar and select <code>https://open.spotify.com</code>.</p>
+                            </div>
+                            <div class="instruction-step">
+                                <span class="step-index">f</span>
+                                <p>Locate the cookie named <code>sp_dc</code> and copy its entire string value (typically starts with a long series of characters). Keep this cookie secret!</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 Content -->
+                    <div class="auth-step-content" id="auth-step-2">
+                        <h3>Under the Hood: TOTP Handshake</h3>
+                        <p>Spotify employs advanced protection schemas, rotating their mobile security handshake tokens using Time-based One-Time Password algorithms. The API is hard-coded to support this challenge-response handshake:</p>
+                        <ul>
+                            <li>The backend fetches an active, encrypted secrets dictionary vector directly from a secure upstream repository updated periodically.</li>
+                            <li>Using the decrypted dictionary seeds, the service generates a temporary, 6-digit TOTP validation passcode using the standard SHA-1 algorithm over 30-second cycles.</li>
+                            <li>The server queries the internal Spotify endpoint <code>/api/server-time</code> to align local timestamps with Spotify's standard synchronization intervals, mitigating drift.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Step 3 Content -->
+                    <div class="auth-step-content" id="auth-step-3">
+                        <h3>Securing the OAuth Access Token</h3>
+                        <p>Once the local TOTP passcode is generated and synchronized with Spotify's server clock, the API sends a request to the official token exchange portal:</p>
+                        <div class="code-box-small">
+                            <pre><code class="mono">GET https://open.spotify.com/api/token</code></pre>
+                        </div>
+                        <p>By appending the synchronized TOTP payload and sending the <code>sp_dc</code> cookie value inside the HTTP headers, Spotify issues a high-level mobile bearer token (<code>accessToken</code>).</p>
+                        <p>The backend stores this token in memory and signs raw binary canvas protobuf envelopes, querying Spotify's CDN cache securely without triggering alarms.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Self-Hosting Installation Section -->
+        <section id="self-host" class="self-host-section">
+            <div class="section-header">
+                <span class="section-pre">Run Locally</span>
+                <h2>Self-Hosting Guide</h2>
+                <p>Deploy this microservice on your local machine, server, or cloud node in minutes.</p>
+            </div>
+
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="window-controls">
+                        <span class="dot-btn red"></span>
+                        <span class="dot-btn yellow"></span>
+                        <span class="dot-btn green"></span>
+                    </div>
+                    <span class="terminal-title">Bash Terminal</span>
+                </div>
+                <div class="terminal-tabs">
+                    <button class="terminal-tab active" data-target="setup-step1">1. Installation</button>
+                    <button class="terminal-tab" data-target="setup-step2">2. Configuration</button>
+                    <button class="terminal-tab" data-target="setup-step3">3. Docker</button>
+                </div>
+                <div class="terminal-body">
+                    <!-- Setup Step 1 -->
+                    <div id="setup-step1" class="terminal-pane active">
+                        <div class="terminal-line"><span class="prompt">$</span> git clone https://github.com/punisher-303/Spotify-Canva.git</div>
+                        <div class="terminal-output">Cloning into 'Spotify-Canva'...
+remote: Enumerating objects: 128, done.
+remote: Counting objects: 100% (128/128), done.
+Unpacking objects: 100% (128/128), done.</div>
+                        <div class="terminal-line"><span class="prompt">$</span> cd Spotify-Canva</div>
+                        <div class="terminal-line"><span class="prompt">$</span> npm install</div>
+                        <div class="terminal-output">added 72 packages in 3.42s</div>
+                        <div class="terminal-line"><span class="prompt">$</span> npm run dev</div>
+                        <div class="terminal-output">Listening on PORT: 3000
+Running on local: http://localhost:3000</div>
+                    </div>
+
+                    <!-- Setup Step 2 -->
+                    <div id="setup-step2" class="terminal-pane">
+                        <div class="terminal-comment"># Create a configuration file in the project's root directory</div>
+                        <div class="terminal-line"><span class="prompt">$</span> touch .env</div>
+                        <div class="terminal-comment"># Paste your session cookie into the file</div>
+                        <div class="terminal-line"><span class="prompt">$</span> echo "SP_DC=AQBgF9S5GkM...your_sp_dc_cookie..." > .env</div>
+                        <div class="terminal-comment"># Your backend is now authenticated and ready for queries!</div>
+                    </div>
+
+                    <!-- Setup Step 3 -->
+                    <div id="setup-step3" class="terminal-pane">
+                        <div class="terminal-comment"># Build a lightweight production-ready Docker container</div>
+                        <div class="terminal-line"><span class="prompt">$</span> docker build -t spotify-canvas-api .</div>
+                        <div class="terminal-output">Sending build context to Docker daemon  240.2kB
+Step 1/5 : FROM node:20-alpine
+---> 4323ebdf3b4c
+Step 5/5 : CMD ["node", "index.js"]
+Successfully tagged spotify-canvas-api:latest</div>
+                        <div class="terminal-line"><span class="prompt">$</span> docker run -d -p 3000:3000 --env SP_DC=your_cookie spotify-canvas-api</div>
+                        <div class="terminal-output">b9875f284a1e948cd25f6bb47d7986790a</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Global Toast notification -->
+    <div id="toast" class="toast hidden">
+        <i data-lucide="check" class="toast-icon"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <p>&copy; 2026 Spotify Canvas API. Built with love and passion.</p>
+                <p class="disclaimer">Disclaimer: This project is strictly for educational purposes. It uses undocumented APIs and is not affiliated with or endorsed by Spotify AB.</p>
+            </div>
+            <div class="footer-right">
+                <a href="https://github.com/punisher-303/Spotify-Canva" target="_blank" rel="noopener" class="footer-icon-link" title="Github Repository">
+                    <i data-lucide="github"></i>
+                </a>
+                <a href="https://spotify-canva.vercel.app/api/canvas?trackId=3OHfY25tqY28d16oZczHc8" target="_blank" rel="noopener" class="footer-icon-link" title="Example JSON API Response">
+                    <i data-lucide="external-link"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Logic Scripts -->
+    <script src="app.js"></script>
+</body>
+</html>
