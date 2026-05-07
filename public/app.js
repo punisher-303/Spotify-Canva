@@ -4,16 +4,17 @@
 const API_BASE_URL = window.location.origin;
 
 // State tracking
-let currentTrackId = '3OHfY25tqY28d16oZczHc8';
+let currentTrackId = '6Uj1ctrBOjOas8xZXGqKk4';
 let activeSnippetLang = 'curl';
 let lastFetchedData = null;
 
 // Preset tracking fallback info
 const trackInfoMap = {
+    '6Uj1ctrBOjOas8xZXGqKk4': { title: 'Woman', artist: 'Doja Cat' },
     '3OHfY25tqY28d16oZczHc8': { title: 'Kill Bill', artist: 'SZA' },
-    '0VjIj96nZ76vfZsgIYRMf7': { title: 'Blinding Lights', artist: 'The Weeknd' },
-    '6mKq63id86Y9ILJ0v7Y2V1': { title: 'Birds of a Feather', artist: 'Billie Eilish' },
-    '2q0m71O69vT73X3pSgCq9C': { title: 'Espresso', artist: 'Sabrina Carpenter' }
+    '6qYkmqFsXbj8CQjAdbYz07': { title: 'Blinding Lights', artist: 'The Weeknd' },
+    '6dOtVTDdiauQNBQEDOtlAB': { title: 'Birds of a Feather', artist: 'Billie Eilish' },
+    '2qSkIjg1o9h3YT9RAgYN75': { title: 'Espresso', artist: 'Sabrina Carpenter' }
 };
 
 // Snippet templates generator
@@ -90,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (val.startsWith('spotify:track:')) {
             val = val.split(':').pop();
         }
-        currentTrackId = val || '3OHfY25tqY28d16oZczHc8';
+        currentTrackId = val || '6Uj1ctrBOjOas8xZXGqKk4';
         updateInteractiveElements();
     });
     

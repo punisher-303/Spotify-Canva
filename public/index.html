@@ -135,7 +135,7 @@
                         <label for="track-id-input">Spotify Track ID / URI</label>
                         <div class="input-with-button">
                             <i data-lucide="music" class="input-icon"></i>
-                            <input type="text" id="track-id-input" value="3OHfY25tqY28d16oZczHc8" placeholder="e.g. 3OHfY25tqY28d16oZczHc8">
+                            <input type="text" id="track-id-input" value="6Uj1ctrBOjOas8xZXGqKk4" placeholder="e.g. 6Uj1ctrBOjOas8xZXGqKk4">
                             <button id="btn-fetch" class="btn btn-accent">
                                 <span class="btn-text">Fetch Canvas</span>
                                 <span class="spinner hidden"></span>
@@ -148,16 +148,19 @@
                     <div class="presets-container">
                         <span class="presets-label">Quick Presets:</span>
                         <div class="preset-chips">
-                            <button class="chip active" data-track-id="3OHfY25tqY28d16oZczHc8" data-song="Kill Bill" data-artist="SZA">
+                            <button class="chip active" data-track-id="6Uj1ctrBOjOas8xZXGqKk4" data-song="Woman" data-artist="Doja Cat">
+                                <span>Doja Cat - Woman</span>
+                            </button>
+                            <button class="chip" data-track-id="3OHfY25tqY28d16oZczHc8" data-song="Kill Bill" data-artist="SZA">
                                 <span>SZA - Kill Bill</span>
                             </button>
-                            <button class="chip" data-track-id="0VjIj96nZ76vfZsgIYRMf7" data-song="Blinding Lights" data-artist="The Weeknd">
+                            <button class="chip" data-track-id="6qYkmqFsXbj8CQjAdbYz07" data-song="Blinding Lights" data-artist="The Weeknd">
                                 <span>The Weeknd - Blinding Lights</span>
                             </button>
-                            <button class="chip" data-track-id="6mKq63id86Y9ILJ0v7Y2V1" data-song="Birds of a Feather" data-artist="Billie Eilish">
+                            <button class="chip" data-track-id="6dOtVTDdiauQNBQEDOtlAB" data-song="Birds of a Feather" data-artist="Billie Eilish">
                                 <span>Billie Eilish - Birds...</span>
                             </button>
-                            <button class="chip" data-track-id="2q0m71O69vT73X3pSgCq9C" data-song="Espresso" data-artist="Sabrina Carpenter">
+                            <button class="chip" data-track-id="2qSkIjg1o9h3YT9RAgYN75" data-song="Espresso" data-artist="Sabrina Carpenter">
                                 <span>Sabrina C. - Espresso</span>
                             </button>
                         </div>
@@ -168,7 +171,7 @@
                         <span class="preview-label">HTTP Request URL</span>
                         <div class="url-bar">
                             <span class="method">GET</span>
-                            <span class="url-path" id="live-url-display">https://spotify-canva.vercel.app/api/canvas?trackId=3OHfY25tqY28d16oZczHc8</span>
+                            <span class="url-path" id="live-url-display">https://spotify-canva.vercel.app/api/canvas?trackId=6Uj1ctrBOjOas8xZXGqKk4</span>
                             <button id="btn-copy-url" class="btn-icon-only" title="Copy URL">
                                 <i data-lucide="copy"></i>
                             </button>
@@ -187,7 +190,7 @@
                             </div>
                         </div>
                         <div class="snippet-content">
-                            <pre><code id="snippet-code-block" class="language-bash">curl -X GET "https://spotify-canva.vercel.app/api/canvas?trackId=3OHfY25tqY28d16oZczHc8"</code></pre>
+                            <pre><code id="snippet-code-block" class="language-bash">curl -X GET "https://spotify-canva.vercel.app/api/canvas?trackId=6Uj1ctrBOjOas8xZXGqKk4"</code></pre>
                             <button id="btn-copy-snippet" class="btn-icon-only copy-snippet-btn" title="Copy Snippet">
                                 <i data-lucide="copy"></i>
                             </button>
@@ -253,8 +256,8 @@
                                         <div class="player-bottom">
                                             <div class="song-details-wrap">
                                                 <div class="song-text">
-                                                    <h4 id="player-track-name">Kill Bill</h4>
-                                                    <p id="player-artist-name">SZA</p>
+                                                    <h4 id="player-track-name">Woman</h4>
+                                                    <p id="player-artist-name">Doja Cat</p>
                                                 </div>
                                                 <button class="btn-like"><i data-lucide="heart" class="heart-filled"></i></button>
                                             </div>
@@ -363,7 +366,7 @@
                                         <td><code class="mono-param">trackId</code></td>
                                         <td><code>String</code></td>
                                         <td><span class="tag-required">REQUIRED</span></td>
-                                        <td>The 22-character unique Spotify track ID (e.g. <code>3OHfY25tqY28d16oZczHc8</code>) or the full Spotify track URI (e.g. <code>spotify:track:3OHfY25tqY28d16oZczHc8</code>).</td>
+                                        <td>The 22-character unique Spotify track ID (e.g. <code>6Uj1ctrBOjOas8xZXGqKk4</code>) or the full Spotify track URI (e.g. <code>spotify:track:6Uj1ctrBOjOas8xZXGqKk4</code>).</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -631,7 +634,7 @@ Successfully tagged spotify-canvas-api:latest</div>
                 <a href="https://github.com/punisher-303/Spotify-Canva" target="_blank" rel="noopener" class="footer-icon-link" title="Github Repository">
                     <i data-lucide="github"></i>
                 </a>
-                <a href="https://spotify-canva.vercel.app/api/canvas?trackId=3OHfY25tqY28d16oZczHc8" target="_blank" rel="noopener" class="footer-icon-link" title="Example JSON API Response">
+                <a href="https://spotify-canva.vercel.app/api/canvas?trackId=6Uj1ctrBOjOas8xZXGqKk4" target="_blank" rel="noopener" class="footer-icon-link" title="Example JSON API Response">
                     <i data-lucide="external-link"></i>
                 </a>
             </div>
