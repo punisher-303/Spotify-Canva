@@ -1701,6 +1701,45 @@ kbd {
     font-size: 0.75rem;
     color: var(--text-dark);
 }
+.author-link {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition-fast);
+}
+.author-link:hover {
+    color: var(--accent-hover);
+    text-shadow: 0 0 8px rgba(29, 185, 84, 0.4);
+}
+.author-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--accent);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+.author-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.heart {
+    color: #f43f5e;
+    display: inline-block;
+    animation: heartBeat 1.2s infinite;
+}
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    14% { transform: scale(1.1); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.1); }
+    70% { transform: scale(1); }
+}
 .footer-right {
     display: flex;
     gap: 16px;
