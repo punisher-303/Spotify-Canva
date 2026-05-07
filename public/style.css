@@ -1823,12 +1823,33 @@ kbd {
 }
 
 .dev-avatar-wrap {
-    width: 120px;
-    height: 120px;
+    width: 124px;
+    height: 124px;
     border-radius: 50%;
     position: relative;
     z-index: 1;
     margin-bottom: 24px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--accent) 0%, #1ed760 50%, #1db954 100%);
+    box-shadow: 0 4px 15px rgba(29, 185, 84, 0.25);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.dev-card:nth-child(2) .dev-avatar-wrap {
+    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.25);
+}
+
+.dev-card:hover .dev-avatar-wrap {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(29, 185, 84, 0.45);
+}
+
+.dev-card:hover:nth-child(2) .dev-avatar-wrap {
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.45);
 }
 
 .dev-avatar {
@@ -1836,17 +1857,13 @@ kbd {
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--border-color);
+    background: var(--bg-secondary);
     filter: grayscale(100%);
-    transition: filter var(--transition-medium), transform var(--transition-medium), border-color var(--transition-medium);
+    transition: filter var(--transition-medium);
 }
+
 .dev-card:hover .dev-avatar {
-    transform: scale(1.05);
-    border-color: var(--accent);
     filter: grayscale(0%);
-}
-.dev-card:hover:nth-child(2) .dev-avatar {
-    border-color: #3b82f6; /* Matching blue hover border for dev 2 */
 }
 
 .dev-badge {
